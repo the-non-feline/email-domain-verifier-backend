@@ -28,6 +28,10 @@ def display_db_browser():
             dbb_string += str(line)
         return dbb_string
 
+@app.route('/items') 
+def fetch_items(): 
+    return rdb.items() 
+
 # NOTE: `app.run` is for testing only, NOT deployment.
 # app.run(debug=True, )
 waitress_serve(app, host='0.0.0.0', port=LISTEN_PORT)
